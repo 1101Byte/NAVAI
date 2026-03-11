@@ -25,6 +25,9 @@ export interface ChatResponse {
 
 const API_BASE = import.meta.env.VITE_API_URL;
 
+
+console.log("API URL:", API_BASE);
+
 export async function checkBackendHealth(): Promise<boolean> {
   try {
     const res = await fetch(`${API_BASE}/api/health`, {
