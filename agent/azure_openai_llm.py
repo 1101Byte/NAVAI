@@ -246,7 +246,8 @@ class AzureOpenAILlm(BaseLlm):
             messages = self._build_messages(request)
             tools = self._build_tools(request)
 
-            payload = {"messages": messages, "temperature": 0.0}
+            payload = {"model": self.model,"messages": messages,"temperature": 0.0,}
+            
             if tools:
                 payload["tools"] = tools
                 payload["tool_choice"] = "auto"
