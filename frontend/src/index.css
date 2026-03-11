@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Background gradient (from provided image) */
+  --pluto-bg-left: #5f62d0;
+  --pluto-bg-mid: #8e5bbd;
+  --pluto-bg-right: #c15bae;
+
+  /* Brand accents (from Pluto logo) */
+  --pluto-indigo: #202068;
+  --pluto-magenta: #e058a0;
+  --pluto-blue: #304898;
+  --pluto-soft: #5888b0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(120deg, var(--pluto-bg-left) 0%, var(--pluto-bg-mid) 50%, var(--pluto-bg-right) 100%);
+  min-height: 100vh;
+}
+
+/* Chat window scrollbar */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(32, 32, 104, 0.35);
+  border-radius: 3px;
+}
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 88, 160, 0.45);
+}
+
+/* Attach button - base and hover color */
+.attach-btn {
+  background: linear-gradient(135deg, #202068 0%, #e058a0 100%);
+}
+.attach-btn:hover {
+  background: linear-gradient(135deg, #1a1a56 0%, #c74e8e 100%);
+}
