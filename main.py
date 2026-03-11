@@ -6,7 +6,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apis.invoke_api import router as invoke_router
 from config.dev_config import API_HOST, API_PORT
-from apis.invoke_api import router as invoke_router
 
 
 # Configure logging so [sap_upload] and other tool logs appear on console.
