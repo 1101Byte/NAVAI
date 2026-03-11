@@ -1,0 +1,46 @@
+import logging
+import sys
+
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from apis.invoke_api import router as invoke_router
+from config.dev_config import API_HOST, API_PORT
+from apis.invoke_api import router as invoke_router
+
+
+# Configure logging so [sap_upload] and other tool logs appear on console.
+# Set LOG_LEVEL=INFO (or DEBUG) in env to see sap_upload_tool logs.
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    stream=sys.stdout,
+)
+# Ensure tools loggers (sap_upload_tool, sap_client, etc.) show INFO
+for name in ("tools.sap_upload_tool", "utils.sap_client"):
+    logging.getLogger(name).setLevel(logging.INFO)
+
+app = FastAPI(title="Logistics Agent API")
+
+# Configure CORS so the frontend can call the API directly during development.
+allowed_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include the invoke API router
+app.include_router(invoke_router)
+
+if __name__ == "__main__":
+    # Start the service using configuration from config.dev_config
+    uvicorn.run(app, host=API_HOST, port=API_PORT)
+
+
