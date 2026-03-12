@@ -28,9 +28,7 @@ from google.genai import types
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# Sensitive-query detection (before_model_callback)
-# ---------------------------------------------------------------------------
+
 
 # Phrases that indicate request to delete agreements from SAP (block and respond)
 DELETE_AGREEMENT_PATTERNS = [
