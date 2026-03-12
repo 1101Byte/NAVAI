@@ -72,7 +72,7 @@ def create_agreement_and_validity_async(
     end_date: str,
     currency: str = "EUR",
     run_in_background: bool = False,
-    charge_type: str | None = None,
+    charge_type: str = None,
 ) -> str:
     """
     Create Freight Agreement and Rate Table Validity in SAP.
