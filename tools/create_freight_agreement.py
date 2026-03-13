@@ -163,13 +163,22 @@ def create_freight_agreement(
                                                 "TranspRateTblScaleRefQtyUnit": "KG",
                                                 "TranspRateTblScaleRefCalcType": "A",
                                             },
+                                            
                                         ],
                                         # Omit _FrtAgrmtRateTableValidity - SAP auto-creates it from
                                         # TranspAgreementValidFrom/TranspAgreementValidTo. Sending it
                                         # causes "Property 'TranspRateTableValidFrom' is invalid" error.
                                     }
                                 ],
-                            }
+                            },
+                        {
+                                "TranspChargeType": "MISC_CHG",
+                                "TranspCalcResolutionBase": "ROOT",
+                                "TranspCalcSheetItemCurrency": currency,
+                                "TranspCalcSheetItemAmount": 1000.0,
+                                "TranspChargeInstrnType": "STND",
+                                "TranspChargeIsDependent": False,
+                        }
                         ],
                     }
                 ],
