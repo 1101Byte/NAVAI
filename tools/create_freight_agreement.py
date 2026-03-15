@@ -128,6 +128,7 @@ def create_freight_agreement(
                     {
                         "TransportationCalculationSheet": "",
                         "_FrtAgrmtCalcSheetItem": [
+                            
                             {
                                 "TranspChargeType": effective_charge_type,
                                 "TranspCalcResolutionBase": "ROOT",
@@ -171,7 +172,7 @@ def create_freight_agreement(
                                     }
                                 ],
                             },
-                        {
+                        {  
                                 "TranspChargeType": "MISC_CHG",
                                 "TranspCalcResolutionBase": "ROOT",
                                 "TranspCalcSheetItemCurrency": currency,
